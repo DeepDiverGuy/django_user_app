@@ -1,0 +1,25 @@
+{% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message.tags }}: {{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<h2> Verification Required for Changing Phone Number </h2>
+
+<form method="POST">
+{% csrf_token %}
+{{ form.non_field_errors }}
+
+    <fieldset>
+
+        {{form.as_p}}
+
+        <div class="submit-row">
+            <p><input type="submit" value="Change My Number"/></p>
+        </div>
+        
+    </fieldset> 
+
+</form>
