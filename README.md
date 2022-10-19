@@ -63,17 +63,17 @@ All functionalities:
 		...
 		'django_otp',
 	    	'django_otp.plugins.otp_email', # Although we're not using this app's "EmailDevice" model; instead using our own one. But there is some dependency issues. So, we need this app.
-    		'phonenumber_field',
-    		'user_app.apps.UserAppConfig',
-    		]
+		'phonenumber_field',
+		'user_app.apps.UserAppConfig',
+		]
 
 	- In the MIDDLEWARE list, add 'django_otp.middleware.OTPMiddleware' just after the 'django.contrib.auth.middleware.AuthenticationMiddleware'. The sequence is necessary as the author of "django_otp" framework mentioned.
 		MIDDLEWARE = [
 		...
 		'django.contrib.auth.middleware.AuthenticationMiddleware',
-    		'django_otp.middleware.OTPMiddleware', # django_otp middleware
-    		...
-    		]
+		'django_otp.middleware.OTPMiddleware', # django_otp middleware
+		...
+		]
 
 	- Specify the default LOGIN_URL:	
 		from django.urls import reverse_lazy
@@ -93,8 +93,8 @@ All functionalities:
 	- You can optionally specify "django_otp" settings as per your needs. Documentation: https://django-otp-official.readthedocs.io/en/stable
 	
 	
-(ii) Twilio configuration:
-	- Set these environment variables as per your Twilio account:
+(ii) Twilio configuration: Set these environment variables as per your Twilio account:
+		
 		TWILIO_ACCOUNT_SID
 		TWILIO_AUTH_TOKEN
 		TWILIO_SERVICE_SID
